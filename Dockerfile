@@ -18,6 +18,9 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:$DOTNET_VERSION-alpine AS release
 
 WORKDIR /app
 
+RUN mv /app/appsettings.json /config/ \
+&& ln -s /config/appsettings.json /app/appsettings.json
+
 COPY --from=build /publish .
 
 EXPOSE 80
