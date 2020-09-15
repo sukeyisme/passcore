@@ -14,7 +14,7 @@ COPY . .
 RUN dotnet restore
 RUN dotnet publish -c Release -o /publish /p:PASSCORE_PROVIDER=LDAP
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:$DOTNET_VERSION-alpine3.9 AS release
+FROM mcr.microsoft.com/dotnet/core/aspnet:$DOTNET_VERSION-alpine AS release
 
 WORKDIR /app
 
